@@ -1,7 +1,7 @@
-import './Paragraph.css';
+import styles from './Paragraph.module.css';
 
-function Paragraph({ text }) {
-	return <p className='paragraph'>{text}</p>;
+function Paragraph({ children }) {
+	return <p className={styles.text}>{children}</p>;
 }
 
 export default Paragraph;

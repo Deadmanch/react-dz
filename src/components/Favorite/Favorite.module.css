@@ -1,0 +1,23 @@
+.favorite {
+	display: flex;
+	align-self: flex-start;
+	gap: 8px;
+	background-color: transparent;
+	color: var(--primary-color);
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	cursor: pointer;
+	border: none;
+	transition: scale 0.25s;
+
+	padding: 0;
+}
+
+.favorite.active {
+	color: var(--success-color);
+}
+
+.favorite:hover {
+	scale: 1.03;
+}
