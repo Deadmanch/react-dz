@@ -1,0 +1,23 @@
+.rating {
+	display: flex;
+
+	border-radius: 8px;
+	backdrop-filter: blur(8px);
+	background-color: var(--bg-rating-color);
+
+	color: var(--rating-color);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	gap: 4px;
+	align-items: center;
+
+	padding: 4px 8px;
+
+	max-width: fit-content;
+}
+
+.rating img {
+	width: 16px;
+	height: 16px;
+}
