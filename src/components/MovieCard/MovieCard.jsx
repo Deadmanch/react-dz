@@ -1,5 +1,5 @@
-import Favorite from '../Favorite/Favorite';
-import Rating from '../Rating/Rating';
+import Favorite from '../Favorite';
+import Rating from '../Rating';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ title, img, rating, favorite }) => {
