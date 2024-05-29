@@ -4,9 +4,11 @@ import Input from '@components/Input';
 import MovieCard from '@components/MovieCard';
 import MovieList from '@components/MovieList';
 import Paragraph from '@components/Paragraph';
-import styles from './App.module.css';
 import Header from './layouts/Header';
 import SearchIcon from '/icons/search.svg';
+import styles from './App.module.css';
+import { useContext, useRef } from 'react';
+import { UserContext } from './context/user.context';
 function App() {
 	const data = [
 		{
@@ -71,19 +73,31 @@ function App() {
 			img: '/movieImg/two_and_half_man.png'
 		}
 	];
-	const clickHandler = () => {
-		console.log('clicked');
+
+	const { loginUser } = useContext(UserContext);
+	const inputRef = useRef(null);
+
+	const onLoginClick = () => {
+		const value = inputRef.current.value;
+		if (value) {
+			loginUser(value);
+		}
 	};
+
+	const onClickLog = () => {
+		console.log('Click on button!');
+	};
+
 	return (
 		<div className={styles.wrapper}>
 			<Header />
 			<div className={styles.info}>
-				<Heading title={data[0].title} />
+				<Heading>{data[0].title}</Heading>
 				<Paragraph text={data[0].text} />
 			</div>
 			<div className={styles.search}>
 				<Input placeholder={'Введите название...'} icon={SearchIcon} />
-				<Button onClick={clickHandler} text={'Искать'} />
+				<Button onClick={onClickLog} text={'Искать'} />
 			</div>
 			<MovieList>
 				{movies.map(movie => (
@@ -96,6 +110,12 @@ function App() {
 					/>
 				))}
 			</MovieList>
+
+			<div id='login' className={styles.info}>
+				<Heading>Вход</Heading>
+				<Input ref={inputRef} placeholder={'Ваше имя'} />
+				<Button onClick={onLoginClick} text={'Войти в профиль'} />
+			</div>
 		</div>
 	);
 }

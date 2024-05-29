@@ -74,8 +74,6 @@ p:where(:not([class], :last-child)) {
   Упрощаем работу с изображениями
  */
 img {
-	display: block;
-
 	max-width: 100%;
 }
 

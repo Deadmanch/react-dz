@@ -8,6 +8,7 @@ module.exports = {
 		'plugin:react/jsx-runtime',
 		'plugin:react-hooks/recommended'
 	],
+	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
 	settings: { react: { version: '18.2' } },
 	plugins: ['react-refresh'],
@@ -17,6 +18,16 @@ module.exports = {
 		'comma-dangle': ['error', 'never'],
 		quotes: ['error', 'single'],
 		'react/prop-types': 'off',
-		indent: ['error', 'tab']
+		indent: ['error', 'tab'],
+		'sort-imports': [
+			'error',
+			{
+				ignoreCase: true,
+				ignoreDeclarationSort: true,
+				ignoreMemberSort: true,
+				memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+				allowSeparatedGroups: true
+			}
+		]
 	}
 };
