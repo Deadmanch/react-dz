@@ -1,8 +1,7 @@
-import { useContext } from 'react';
 import styles from './Nav.module.css';
-import { UserContext } from '../../context/user.context';
+import { useUser } from '../../hooks/useUser';
 const Nav = () => {
-	const { activeUser, logoutUser } = useContext(UserContext);
+	const { activeUser, logoutUser } = useUser();
 	return (
 		<nav className={styles.nav}>
 			<ul className={styles.list}>

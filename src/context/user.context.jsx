@@ -4,7 +4,6 @@ import { useAuth } from '../hooks/useAuth';
 export const UserContext = createContext({
 	user: null
 });
-
 const UserContextProvider = ({ children }) => {
 	const { activeUser, loginUser, logoutUser } = useAuth();
 

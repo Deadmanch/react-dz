@@ -7,8 +7,8 @@ import Paragraph from '@components/Paragraph';
 import Header from './layouts/Header';
 import SearchIcon from '/icons/search.svg';
 import styles from './App.module.css';
-import { useContext, useRef } from 'react';
-import { UserContext } from './context/user.context';
+import { useRef } from 'react';
+import { useUser } from './hooks/useUser';
 function App() {
 	const data = [
 		{
@@ -74,7 +74,7 @@ function App() {
 		}
 	];
 
-	const { loginUser } = useContext(UserContext);
+	const { loginUser } = useUser();
 	const inputRef = useRef(null);
 
 	const onLoginClick = () => {

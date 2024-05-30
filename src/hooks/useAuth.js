@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { USERS_STORAGE_KEY } from '../helpers/localStorageKeys';
+
+const USERS_STORAGE_KEY = 'users';
 
 export const useAuth = () => {
 	const [users, setUsers] = useState([]);
