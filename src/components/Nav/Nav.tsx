@@ -1,5 +1,5 @@
-import styles from './Nav.module.css';
 import { useUser } from '../../hooks/useUser';
+import styles from './Nav.module.css';
 const Nav = () => {
 	const { activeUser, logoutUser } = useUser();
 	return (
@@ -19,30 +19,18 @@ const Nav = () => {
 					<li className={styles.item}>
 						<a className={styles.link} href='#'>
 							{activeUser.name}
-							<img
-								src='/icons/user.svg'
-								alt='Иконка пользователя'
-								loading='lazy'
-								width={24}
-								height={24}
-							/>
+							<img src='/icons/user.svg' alt='Иконка пользователя' loading='lazy' width={24} height={24} />
 						</a>
 					</li>
 				)}
 				<li className={styles.item}>
-					<a className={styles.link} href='#login' onClick={activeUser && logoutUser}>
-						{activeUser?.isLogined ? (
+					<a className={styles.link} href='#login' onClick={activeUser ? logoutUser : undefined}>
+						{activeUser?.isLogged ? (
 							'Выйти'
 						) : (
 							<>
 								Войти
-								<img
-									src='icons/login.svg'
-									alt='Иконка входа'
-									loading='lazy'
-									width={24}
-									height={24}
-								/>
+								<img src='icons/login.svg' alt='Иконка входа' loading='lazy' width={24} height={24} />
 							</>
 						)}
 					</a>
