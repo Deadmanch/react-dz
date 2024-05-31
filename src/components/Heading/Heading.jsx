@@ -1,7 +1,7 @@
 import styles from './Heading.module.css';
 
-function Heading({ title }) {
-	return <h1 className={styles.heading}>{title}</h1>;
+function Heading({ children }) {
+	return <h1 className={styles.heading}>{children}</h1>;
 }
 
 export default Heading;

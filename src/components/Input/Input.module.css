@@ -1,17 +1,13 @@
 .wrapper {
 	position: relative;
 	width: 100%;
-	&:has(.icon) {
-		.input {
-			padding-left: 56px;
-		}
-	}
 }
 
 .icon {
 	position: absolute;
 	pointer-events: none;
 	top: 50%;
+	left: 0;
 	transform: translateY(-50%);
 	margin-left: 16px;
 	width: 100%;
@@ -34,5 +30,8 @@
 
 	&::placeholder {
 		color: var(--placeholder-color);
+	}
+	&.withIcon {
+		padding-left: 56px;
 	}
 }
