@@ -1,0 +1,12 @@
+.container {
+	display: grid;
+	place-items: center;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+	max-width: 384px;
+	width: 100%;
+}
