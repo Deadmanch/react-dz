@@ -15,10 +15,11 @@
 	line-height: 24px;
 	font-weight: 600;
 	color: var(--link-color);
+	transition: color 0.25s ease-in-out;
 	&.active {
 		color: var(--text-color-white);
 	}
 	&:hover {
-		color: var(--text-color-light);
+		color: var(--text-color-white);
 	}
 }
