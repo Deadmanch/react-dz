@@ -4,16 +4,16 @@ import Rating from '../Rating';
 import styles from './MovieCard.module.css';
 import { IMovieCardProps } from './MovieCard.props';
 
-const MovieCard = (props: IMovieCardProps) => {
+const MovieCard = ({ id, img, title, rating, favorite }: IMovieCardProps) => {
 	return (
-		<Link to={`/movie/${props.id}`} className={styles.card}>
-			<img className={styles.card__image} src={props.img} alt={props.title} />
+		<Link to={`/movie/${id}`} className={styles.card}>
+			<img className={styles.card__image} src={img} alt={title} />
 			<div className={styles.rating__container}>
-				<Rating rating={props.rating} />
+				<Rating rating={rating} />
 			</div>
 			<div className={styles.card__bottom}>
-				<h3 className={styles.card__title}>{props.title}</h3>
-				<Favorite isFavorite={props.favorite} />
+				<h3 className={styles.card__title}>{title}</h3>
+				<Favorite isFavorite={favorite} />
 			</div>
 		</Link>
 	);
