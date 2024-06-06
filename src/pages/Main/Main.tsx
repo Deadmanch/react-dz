@@ -5,8 +5,10 @@ import MovieCard from '@/components/MovieCard';
 import MovieList from '@/components/MovieList';
 import Paragraph from '@/components/Paragraph';
 import { movies } from '@/mock/data';
-import styles from './Main.module.css';
+
 import SearchIcon from '/public/icons/search.svg';
+
+import styles from './Main.module.css';
 
 export const Main = () => {
 	const onClickLog = () => {

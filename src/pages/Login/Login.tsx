@@ -1,9 +1,11 @@
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Input from '@/components/Input';
 import { useUser } from '@/hooks/useUser';
-import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import styles from './Login.module.css';
 
 export const Login = () => {

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+
 import Favorite from '../Favorite';
 import Rating from '../Rating';
+
 import styles from './MovieCard.module.css';
 import { IMovieCardProps } from './MovieCard.props';
 

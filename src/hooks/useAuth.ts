@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { IUser } from '../interfaces/user.interface';
 
 const USERS_STORAGE_KEY = 'users';

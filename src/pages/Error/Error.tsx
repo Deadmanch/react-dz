@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Paragraph from '@/components/Paragraph';
-import { useNavigate } from 'react-router-dom';
+
 import styles from './Error.module.css';
+
 export const Error = () => {
 	const navigate = useNavigate();
 	return (

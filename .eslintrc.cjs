@@ -6,12 +6,19 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
-		'plugin:react-hooks/recommended'
+		'plugin:react-hooks/recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:import/recommended'
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-	settings: { react: { version: '18.2' } },
-	plugins: ['react-refresh'],
+	settings: {
+		react: { version: '18.2' },
+		'import/resolver': {
+			typescript: {}
+		}
+	},
+	plugins: ['react-refresh', 'import'],
 	rules: {
 		'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 		semi: ['error', 'always', { omitLastInOneLineBlock: false }],
@@ -19,15 +26,31 @@ module.exports = {
 		quotes: ['error', 'single'],
 		'react/prop-types': 'off',
 		indent: ['error', 'tab'],
-		'sort-imports': [
+		'import/order': [
 			'error',
 			{
-				ignoreCase: true,
-				ignoreDeclarationSort: true,
-				ignoreMemberSort: true,
-				memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-				allowSeparatedGroups: true
+				groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'object', 'type', 'index'],
+				pathGroups: [
+					{
+						pattern: '*.css',
+						group: 'index',
+						position: 'after'
+					}
+				],
+				pathGroupsExcludedImportTypes: [
+					'builtin',
+					'external',
+					'internal',
+					'parent',
+					'sibling',
+					'index',
+					'object',
+					'type'
+				],
+				'newlines-between': 'always',
+				alphabetize: { order: 'asc', caseInsensitive: true }
 			}
-		]
+		],
+		'import/no-unresolved': 'off'
 	}
 };

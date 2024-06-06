@@ -1,7 +1,10 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+
 import { useUser } from '../../hooks/useUser';
+
 import styles from './Nav.module.css';
+
 
 const Nav = () => {
 	const { activeUser, logoutUser } = useUser();
