@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from './layouts/Layout';
 import { Error } from './pages/Error';
 import { Favorites } from './pages/Favorites';
