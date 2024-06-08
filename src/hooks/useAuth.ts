@@ -1,28 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import { IUser } from '../interfaces/user.interface';
 
 const USERS_STORAGE_KEY = 'users';
 
 export const useAuth = () => {
-	const [users, setUsers] = useState([]);
-	const [activeUser, setActiveUser] = useState(null);
+	const [users, setUsers] = useState<IUser[]>([]);
+	const [activeUser, setActiveUser] = useState<IUser | null>(null);
 
 	useEffect(() => {
-		const storedUsers = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY));
+		const storedUsers = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY) || '[]');
 		if (storedUsers) {
 			setUsers(storedUsers);
 		}
 	}, []);
 
-	const loginUser = userName => {
+	const loginUser = (userName: string) => {
 		const updatedUsers = users.map(user => ({
 			...user,
-			isLogined: user.name === userName ? true : false
+			isLogged: user.name === userName ? true : false
 		}));
 
-		let userExists = updatedUsers.find(user => user.isLogined);
+		let userExists = updatedUsers.find(user => user.isLogged);
 
 		if (!userExists) {
-			const newUser = { name: userName, isLogined: true };
+			const newUser: IUser = { name: userName, isLogged: true };
 			updatedUsers.push(newUser);
 			userExists = newUser;
 		}
@@ -35,7 +37,7 @@ export const useAuth = () => {
 	const logoutUser = () => {
 		const updatedUsers = users.map(user => ({
 			...user,
-			isLogined: false
+			isLogged: false
 		}));
 
 		localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(updatedUsers));
