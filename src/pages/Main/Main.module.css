@@ -12,3 +12,26 @@
 	gap: 8px;
 	margin-bottom: 80px;
 }
+.notFound {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.notFoundTitle {
+	color: var(--text-color-white);
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 56px;
+	margin-bottom: 20px;
+}
+
+.loader {
+	display: flex;
+	justify-content: center;
+}
+
+.loaderText {
+	font-size: 20px;
+	color: var(--text-color-white);
+}
