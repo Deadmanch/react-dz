@@ -26,6 +26,7 @@ module.exports = {
 		quotes: ['error', 'single'],
 		'react/prop-types': 'off',
 		indent: ['error', 'tab'],
+		'@typescript-eslint/no-explicit-any': 'off',
 		'import/order': [
 			'error',
 			{
