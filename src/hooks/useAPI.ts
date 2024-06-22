@@ -1,43 +1,11 @@
-import axios from 'axios';
 import { useState, useEffect, useCallback } from 'react';
 
+import { fetchApi } from '@/helpers/appClient';
 import { IMovie } from '@/interfaces/movie.interface';
-
-export const API_URL = 'https://api.kinopoisk.dev/v1.4/movie';
-export const API_KEY = 'MHTADPZ-GDK452K-QJZCX79-ABSY3XX';
 
 interface IMovieResponse {
 	docs: IMovie[];
 }
-interface FetchApiConfig {
-	endpoint: string;
-	params?: Record<string, any>;
-	headers?: Record<string, string>;
-}
-
-const apiClient = axios.create({
-	baseURL: API_URL,
-	headers: {
-		accept: 'application/json',
-		'X-API-KEY': API_KEY
-	}
-});
-
-const fetchApi = async <T>({ endpoint, params, headers }: FetchApiConfig): Promise<T | null> => {
-	try {
-		const { data } = await apiClient.get<T>(endpoint, {
-			headers: {
-				accept: 'application/json',
-				...headers
-			},
-			params
-		});
-		return data;
-	} catch (error) {
-		console.error('Ошибка при выполнении запроса:', error);
-		return null;
-	}
-};
 
 const requestRandomMovie = async (): Promise<IMovie | null> => {
 	return await fetchApi<IMovie>({
