@@ -44,9 +44,9 @@ module.exports = {
 					'internal',
 					'parent',
 					'sibling',
-					'index',
 					'object',
-					'type'
+					'type',
+					'index'
 				],
 				'newlines-between': 'always',
 				alphabetize: { order: 'asc', caseInsensitive: true }
