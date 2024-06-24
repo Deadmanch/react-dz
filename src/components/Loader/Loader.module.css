@@ -1,0 +1,9 @@
+.loader {
+	display: flex;
+	justify-content: center;
+}
+
+.loaderText {
+	font-size: 20px;
+	color: var(--text-color-white);
+}

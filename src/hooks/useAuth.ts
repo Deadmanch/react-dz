@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { IUser } from '../interfaces/user.interface';
 
-const USERS_STORAGE_KEY = 'users';
+export const USERS_STORAGE_KEY = 'users';
 
 export const useAuth = () => {
 	const [users, setUsers] = useState<IUser[]>([]);

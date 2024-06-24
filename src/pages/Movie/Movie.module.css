@@ -1,0 +1,20 @@
+.container {
+	border-radius: 24px;
+	padding: 40px;
+	backdrop-filter: blur(24px);
+	background: var(--bg-movie-card);
+}
+
+.back {
+	color: var(--primary-color-light);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	text-decoration: none;
+	margin-bottom: 8px;
+	transition: color 0.25s ease-in-out;
+}
+
+.back:hover {
+	color: var(--primary-color);
+}

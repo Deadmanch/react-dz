@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { IMovie } from '@/interfaces/movie.interface';
 
 export interface IMovieListProps {
-	children: ReactNode;
+	movies: IMovie[];
+	isLoading: boolean;
 }

@@ -26,6 +26,7 @@ module.exports = {
 		quotes: ['error', 'single'],
 		'react/prop-types': 'off',
 		indent: ['error', 'tab'],
+		'@typescript-eslint/no-explicit-any': 'off',
 		'import/order': [
 			'error',
 			{
@@ -43,9 +44,9 @@ module.exports = {
 					'internal',
 					'parent',
 					'sibling',
-					'index',
 					'object',
-					'type'
+					'type',
+					'index'
 				],
 				'newlines-between': 'always',
 				alphabetize: { order: 'asc', caseInsensitive: true }
