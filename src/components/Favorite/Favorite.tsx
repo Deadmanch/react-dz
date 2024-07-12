@@ -5,13 +5,14 @@ import styles from './Favorite.module.css';
 import { IFavoriteProps } from './Favorite.props';
 
 const Favorite = forwardRef<HTMLButtonElement, IFavoriteProps>(function Favorite(
-	{ isFavorite },
+	{ isFavorite, onClick },
 	ref
 ) {
 	const label = isFavorite ? 'В избранном' : 'В избранное';
 	return (
 		<button
 			ref={ref}
+			onClick={onClick}
 			className={cn(styles['favorite'], { [styles['favorite_active']]: isFavorite })}
 		>
 			<img src={!isFavorite ? '/icons/like.svg' : '/icons/bookmark.svg'} />
