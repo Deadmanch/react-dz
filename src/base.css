@@ -35,7 +35,16 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-image: url('/public/background.png');
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-attachment: fixed;
+	&::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url('/public/background.png') repeat-y;
+		background-size: cover;
+		z-index: -1;
+	}
 }
