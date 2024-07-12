@@ -1,11 +1,10 @@
 import { redirect } from 'react-router-dom';
 
-import { USERS_STORAGE_KEY } from '@/hooks/useAuth';
 import { IUser } from '@/interfaces/user.interface';
 
 const getActiveUser = async (): Promise<IUser | null> => {
-	const users: IUser[] = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY) || '[]');
-	return users.find((user: IUser) => user.isLogged) || null;
+	const storageData = JSON.parse(localStorage.getItem('users') || '{}');
+	return storageData.activeUser || null;
 };
 
 export const RequireAuthLoader = async () => {
@@ -13,6 +12,5 @@ export const RequireAuthLoader = async () => {
 	if (!user) {
 		return redirect('/login');
 	}
-
 	return null;
 };
