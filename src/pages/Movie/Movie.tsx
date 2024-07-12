@@ -2,19 +2,19 @@ import { Suspense } from 'react';
 import { Await, Link, useLoaderData } from 'react-router-dom';
 
 import Heading from '@/components/Heading';
-import { IMovieById } from '@/interfaces/movieById.interface';
+import { IMovie } from '@/interfaces/movie.interface';
 
 import { Error } from '../Error';
 
 import styles from './Movie.module.css';
 
 export const Movie = () => {
-	const { data } = useLoaderData() as { data: IMovieById };
+	const { data } = useLoaderData() as { data: IMovie };
 
 	return (
 		<Suspense fallback={<div>Загрузка...</div>}>
 			<Await resolve={data} errorElement={<Error />}>
-				{({ data }: { data: IMovieById }) => (
+				{({ data }: { data: IMovie }) => (
 					<div className={styles.container}>
 						<Link to='/' className={styles.back}>
 							Поиск фильмов
