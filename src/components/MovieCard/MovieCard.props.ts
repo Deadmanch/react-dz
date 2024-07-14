@@ -3,5 +3,4 @@ export interface IMovieCardProps {
 	img: string;
 	rating: number;
 	id: number;
-	favorite: boolean;
 }
