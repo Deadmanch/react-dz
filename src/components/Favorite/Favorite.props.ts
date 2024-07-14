@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes } from 'react';
-
-export interface IFavoriteProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	isFavorite: boolean;
+export interface IFavoriteProps {
+	id: number;
+	name: string;
+	rating: number;
+	img: string;
 }
