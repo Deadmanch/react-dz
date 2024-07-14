@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = 'https://api.kinopoisk.dev/v1.4/movie';
+export const API_URL = 'https://api.kinopoisk.dev/v1.4';
 export const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 interface FetchApiConfig {
