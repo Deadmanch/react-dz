@@ -1,8 +1,5 @@
-import { useSelector } from 'react-redux';
-
 import Loader from '../Loader';
 import MovieCard from '../MovieCard/MovieCard';
-import { RootState } from '../../store/store';
 
 import styles from './MovieList.module.css';
 import { IMovieListProps } from './MovieList.props';
@@ -10,10 +7,6 @@ import { IMovieListProps } from './MovieList.props';
 import ImagePlaceholder from '/public/no-image.png';
 
 const MovieList = ({ movies, isLoading }: IMovieListProps) => {
-	const activeUser = useSelector((s: RootState) => s.users.activeUser);
-	const favorites = useSelector((s: RootState) => s.favorites);
-	const favoriteMovies = activeUser ? favorites[activeUser.name] ?? [] : [];
-
 	if (isLoading) {
 		return <Loader isLoading={isLoading} />;
 	}
@@ -36,7 +29,6 @@ const MovieList = ({ movies, isLoading }: IMovieListProps) => {
 					img={movie.poster.url || ImagePlaceholder}
 					name={movie.name}
 					rating={movie.rating.kp || 0}
-					favorite={favoriteMovies.some(fav => fav.id === movie.id)}
 				/>
 			))}
 		</div>
