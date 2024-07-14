@@ -9,6 +9,7 @@ export interface IMovie {
 	year?: number;
 	movieLength?: number;
 	genres?: Genre[];
+	premiere?: Premiere;
 }
 
 export interface Genre {
@@ -25,4 +26,12 @@ export interface Rating {
 	imdb?: number;
 	filmCritics?: number;
 	russianFilmCritics?: number;
+}
+export interface Premiere {
+	world?: string;
+	russia?: string;
+	bluray?: string;
+	dvd?: string;
+	cinema?: any;
+	digital?: any;
 }
