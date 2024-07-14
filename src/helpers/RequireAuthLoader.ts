@@ -1,14 +1,15 @@
 import { redirect } from 'react-router-dom';
 
 import { IUser } from '@/interfaces/user.interface';
+import { store, RootState } from '@/store/store';
 
-const getActiveUser = async (): Promise<IUser | null> => {
-	const storageData = JSON.parse(localStorage.getItem('users') || '{}');
-	return storageData.activeUser || null;
+const getActiveUser = (): IUser | null => {
+	const state: RootState = store.getState();
+	return state.users.activeUser;
 };
 
 export const RequireAuthLoader = async () => {
-	const user = await getActiveUser();
+	const user = getActiveUser();
 	if (!user) {
 		return redirect('/login');
 	}
