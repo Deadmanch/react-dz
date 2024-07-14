@@ -1,4 +1,6 @@
 .review {
+	margin-top: 14px;
+	margin-bottom: 80px;
 	border-radius: 24px;
 	padding: 40px;
 	backdrop-filter: blur(24px);

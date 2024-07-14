@@ -79,6 +79,7 @@ export const Movie = () => {
 								</div>
 							</div>
 						</div>
+						<Paragraph classNames={styles.infoItemTitle}>Отзывы</Paragraph>
 						{review && <Review title={review.title} review={review.review} date={review.date} />}
 					</>
 				)}
