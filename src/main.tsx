@@ -42,7 +42,7 @@ const router = createBrowserRouter([
 				element: <Movie />,
 				loader: async ({ params }) => {
 					return defer({
-						data: axios.get<IMovie>(`${API_URL}/${params.id}`, {
+						data: axios.get<IMovie>(`${API_URL}/movie/${params.id}`, {
 							headers: {
 								accept: 'application/json',
 								'X-API-KEY': API_KEY

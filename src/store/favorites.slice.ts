@@ -20,7 +20,7 @@ const favoritesSlice = createSlice({
 				state[username] = [];
 			}
 			state[username].push(movie);
-			saveState('favorites', state.movies);
+			saveState('favorites', state);
 		},
 		removeMovieFromFavorites(state, action: PayloadAction<{ username: string; movieId: number }>) {
 			const { username, movieId } = action.payload;
