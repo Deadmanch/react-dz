@@ -29,7 +29,6 @@ const requestMovies = async (name: string): Promise<IMovie[]> => {
 			query: name
 		}
 	});
-	console.log(data);
 	return data?.docs || [];
 };
 
