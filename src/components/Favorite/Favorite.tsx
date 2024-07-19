@@ -9,16 +9,22 @@ import { AppDispatch, RootState } from '@/store/store';
 import styles from './Favorite.module.css';
 import { IFavoriteProps } from './Favorite.props';
 
+const EMPTY_ARRAY: IMovie[] = [];
+
+const selectFavoriteMovies = (state: RootState, activeUserName: string | undefined) => {
+	const userFavorites = activeUserName ? state.favorites[activeUserName] : undefined;
+	return userFavorites ? userFavorites : EMPTY_ARRAY;
+};
+
 const Favorite = forwardRef<HTMLButtonElement, IFavoriteProps>(function Favorite(
 	{ id, name, img, rating },
 	ref
 ) {
 	const dispatch = useDispatch<AppDispatch>();
-	const activeUser = useSelector((s: RootState) => s.users.activeUser);
-	const favoriteMovies = useSelector((s: RootState) => {
-		const userFavorites = activeUser ? s.favorites[activeUser.name] : undefined;
-		return userFavorites ? userFavorites : [];
-	});
+	const activeUser = useSelector((state: RootState) => state.users.activeUser);
+	const favoriteMovies = useSelector((state: RootState) =>
+		selectFavoriteMovies(state, activeUser ? activeUser.name : undefined)
+	);
 
 	const isFavorite = useMemo(
 		() => favoriteMovies.some((movie: IMovie) => movie.id === id),
@@ -38,6 +44,7 @@ const Favorite = forwardRef<HTMLButtonElement, IFavoriteProps>(function Favorite
 	};
 
 	const label = isFavorite ? 'В избранном' : 'В избранное';
+
 	return (
 		<button
 			ref={ref}
