@@ -1,21 +1,23 @@
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '@/components/Button';
 import Heading from '@/components/Heading';
 import Input from '@/components/Input';
-import { useUser } from '@/hooks/useUser';
+import { AppDispatch } from '@/store/store';
+import { loginUser } from '@/store/user.slice';
 
 import styles from './Login.module.css';
 
 export const Login = () => {
-	const { loginUser } = useUser();
 	const inputRef = useRef<HTMLInputElement>(null);
 	const navigate = useNavigate();
+	const dispatch = useDispatch<AppDispatch>();
 
 	const onLoginClick = () => {
 		if (inputRef.current && inputRef.current.value) {
-			loginUser(inputRef.current.value);
+			dispatch(loginUser(inputRef.current.value));
 		}
 		navigate('/');
 	};

@@ -27,9 +27,8 @@ const MovieList = ({ movies, isLoading }: IMovieListProps) => {
 					key={movie.id}
 					id={movie.id}
 					img={movie.poster.url || ImagePlaceholder}
-					title={movie.name}
-					rating={movie.rating.kp}
-					favorite={false}
+					name={movie.name}
+					rating={movie.rating.kp || 0}
 				/>
 			))}
 		</div>

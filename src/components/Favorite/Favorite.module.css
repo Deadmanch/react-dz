@@ -1,6 +1,5 @@
 .favorite {
 	display: flex;
-	align-self: flex-start;
 	gap: 8px;
 	background-color: transparent;
 	color: var(--primary-color);
